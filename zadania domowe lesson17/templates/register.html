@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja na wydarzenie</title>
+</head>
+
+<body>
+    <h1>Zarejestruj się na wydarzenie</h1>
+
+    {# action="/register" mówi formularzowi, dokąd wysłać dane po
+       kliknięciu przycisku - tutaj wraca na ten sam adres /register,
+       tylko tym razem jako żądanie POST (dzięki method="POST").
+       Atrybut "name" w każdym <input> to klucz, pod jakim Flask
+       odbierze tę wartość w request.form (np. request.form["name"]) #}
+    <form action="/register" method="POST">
+        <label for="name">Imię:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <button type="submit">Zarejestruj</button>
+    </form>
+</body>
+
+</html> 

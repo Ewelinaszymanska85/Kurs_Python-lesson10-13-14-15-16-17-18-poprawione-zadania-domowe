@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Informacje o książce</title>
+</head>
+
+<body>
+    <!-- Odwołujemy się do pól słownika przez notację z kropką:
+         book.title, book.author, book.year - Jinja2 automatycznie
+         rozpoznaje, że "book" to słownik, i pozwala na taki dostęp
+         do jego kluczy, tak samo jak book['title'] -->
+    <h1>{{ book.title }}</h1>
+    <p>Autor: {{ book.author }}</p>
+    <p>Rok wydania: {{ book.year }}</p>
+</body>
+
+</html> 

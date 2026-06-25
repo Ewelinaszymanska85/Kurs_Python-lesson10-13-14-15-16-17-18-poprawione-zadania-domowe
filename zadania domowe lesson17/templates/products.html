@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista produktów</title>
+</head>
+
+<body>
+    <h1>Produkty</h1>
+
+    {# Iterujemy przez listę produktów pobranych z bazy danych -
+       każdy produkt jest obiektem klasy Product, więc odwołujemy
+       się do jego pól przez product.name i product.price #}
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Cena</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }} zł</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

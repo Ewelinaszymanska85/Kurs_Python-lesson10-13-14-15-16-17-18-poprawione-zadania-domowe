@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Galeria zdjęć</title>
+</head>
+
+<body>
+    <h1>Moja galeria</h1>
+
+    {# Iterujemy przez listę słowników "images" - każdy element
+       ma pola url (link do obrazka) i caption (podpis) #}
+    {% for image in images %}
+    <div>
+        <img src="{{ image.url }}" alt="{{ image.caption }}" width="400">
+        <p>{{ image.caption }}</p>
+    </div>
+    {% endfor %}
+</body>
+
+</html> 

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+
+<h1>Dashboard rezerwacji</h1>
+
+
+<h2>Rozkład rezerwacji per departament</h2>
+
+<canvas id="pie"></canvas>
+
+
+<h2>Trend 30 dni</h2>
+
+<canvas id="trend"></canvas>
+
+
+<h2>Popularne godziny (heatmapa)</h2>
+
+<table border="1" id="heatmap">
+
+</table>
+
+
+
+<script>
+
+
+fetch("/dashboard/extended-stats")
+.then(r => r.json())
+.then(data => {
+
+
+
+/* ======================
+   WYKRES KOŁOWY
+====================== */
+
+
+new Chart(
+document.getElementById("pie"),
+{
+
+type:"pie",
+
+data:{
+
+labels:
+data.pie_chart_departments.map(
+x => x.departament
+),
+
+
+datasets:[{
+
+data:
+data.pie_chart_departments.map(
+x => x.liczba_rezerwacji
+)
+
+}]
+
+}
+
+});
+
+
+
+
+
+/* ======================
+   TREND 30 DNI
+====================== */
+
+
+new Chart(
+document.getElementById("trend"),
+{
+
+type:"line",
+
+
+data:{
+
+
+labels:
+data.trend_last_30_days.map(
+x => x.data
+),
+
+
+
+datasets:[{
+
+label:"Rezerwacje",
+
+
+data:
+data.trend_last_30_days.map(
+x => x.liczba_rezerwacji
+)
+
+}]
+
+}
+
+
+});
+
+
+
+
+
+
+/* ======================
+   HEATMAPA
+====================== */
+
+
+let tabela =
+document.getElementById("heatmap");
+
+
+
+tabela.innerHTML = `
+
+<tr>
+
+<th>Dzień</th>
+
+<th>Godzina</th>
+
+<th>Liczba rezerwacji</th>
+
+</tr>
+
+`;
+
+
+
+data.heatmap_day_hour.forEach(item => {
+
+
+tabela.innerHTML += `
+
+<tr>
+
+<td>${item.dzien_tygodnia}</td>
+
+<td>${item.godzina}:00</td>
+
+<td>${item.liczba_rezerwacji}</td>
+
+</tr>
+
+`;
+
+
+});
+
+
+
+});
+
+
+
+</script>
+
+
+</body>
+
+</html>

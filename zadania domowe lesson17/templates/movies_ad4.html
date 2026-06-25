@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+ 
+<head>
+    <meta charset="UTF-8">
+    <!-- Tytuł strony jest teraz dynamiczny - pochodzi ze zmiennej
+         page_title przekazanej z Pythona, a nie wpisany na sztywno -->
+    <title>{{ page_title }}</title>
+</head>
+ 
+<body>
+    <!-- Używamy pętli for do wyświetlenia każdego filmu z listy -->
+    <h1>Moje ulubione filmy</h1>
+    <ul>
+        {% for film in movies %}
+        <li>{{ film }}</li>
+        {% endfor %}
+    </ul>
+</body>
+ 
+</html>
