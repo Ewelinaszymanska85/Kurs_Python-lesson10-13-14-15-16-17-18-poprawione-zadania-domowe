@@ -1,1 +1,1 @@
-# Kurs_Python-lesson10-13-14-15-16-17-18.
+# Kurs_Python-lesson10-13-14-15-16-17-18-poprawione-zadania-domowe
