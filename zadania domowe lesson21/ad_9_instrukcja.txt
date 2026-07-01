@@ -1,0 +1,56 @@
+============================================================
+Lekcja 21 - Zadanie 9 - Zmiana w panelu admina (tytuł)
+============================================================
+
+ŹRÓDŁO / SKĄD TO WIADOMO:
+Dokumentacja Django - sekcja "Overriding admin templates":
+https://docs.djangoproject.com/en/stable/ref/contrib/admin/#overriding-admin-templates
+
+
+WYJAŚNIENIE:
+Django, oprócz głównego pliku admin/base.html (skomplikowany,
+zawiera cały layout panelu), dostarcza pomocniczy "hak"
+admin/base_site.html, stworzony właśnie po to, żeby można było
+łatwo zmienić nagłówek/tytuł bez kopiowania całego layoutu.
+
+Domyślna zawartość admin/base_site.html (wewnątrz biblioteki
+Django) wygląda tak:
+
+  {% extends "admin/base.html" %}
+  {% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+  {% block branding %}
+  <h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+  {% endblock %}
+
+Jeśli stworzymy WŁASNY plik o dokładnie tej samej ścieżce
+(templates/admin/base_site.html) w naszym projekcie, Django
+użyje NASZEJ wersji zamiast domyślnej - dzięki temu, że nasz
+folder templates/ jest wpisany w TEMPLATES['DIRS'] w settings.py
+(co ma pierwszeństwo przed szablonami wbudowanymi w bibliotekę).
+
+
+KROK 1 - Stworzenie struktury katalogów:
+(z głównego katalogu projektu, gdzie jest manage.py)
+
+mkdir templates\admin
+
+
+KROK 2 - Stworzenie pliku:
+
+notepad templates\admin\base_site.html
+
+(treść pliku - patrz osobny plik base_site.html)
+
+
+KROK 3 - Test:
+
+python manage.py runserver
+
+http://127.0.0.1:8000/admin/
+
+(jeśli nie masz jeszcze konta admina, najpierw stwórz je:
+python manage.py createsuperuser)
+
+Tytuł karty przeglądarki oraz nagłówek na stronie logowania/panelu
+powinny teraz pokazywać "Panel Administratora Mojej Strony"
+zamiast domyślnego "Django administration". 

@@ -1,0 +1,23 @@
+{# articles/templates/articles/category_detail.html #}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ category.name }}</h1>
+
+<h2>Artykuły w tej kategorii</h2>
+
+{% if category.articles.all %}
+    <ul class="list-group">
+        {% for article in category.articles.all %}
+            <li class="list-group-item">{{ article.title }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Brak artykułów w tej kategorii.</p>
+{% endif %}
+
+<p><a href="{% url 'category-list' %}">&larr; Wróć do listy kategorii</a></p>
+
+{% endblock %} 

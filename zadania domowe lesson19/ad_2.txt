@@ -1,0 +1,8 @@
+# Zadanie 2 - Uruchomienie serwera
+
+python manage.py runserver
+
+# Efekt:
+# Serwer wystartował poprawnie pod adresem http://127.0.0.1:8000/
+# W przeglądarce widoczna domyślna strona powitalna Django:
+# "The install worked successfully! Congratulations!"

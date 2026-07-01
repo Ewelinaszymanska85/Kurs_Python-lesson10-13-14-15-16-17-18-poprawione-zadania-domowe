@@ -1,0 +1,22 @@
+{# articles/templates/articles/category_list.html #}
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'articles/style.css' %}">
+
+<h1>Lista kategorii</h1>
+
+{% if categories %}
+    <ul class="list-group">
+        {% for category in categories %}
+            <li class="list-group-item">{{ category.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Brak kategorii do wyświetlenia.</p>
+{% endif %}
+
+{% endblock %} 

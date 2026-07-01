@@ -1,0 +1,34 @@
+# Zadanie 9 - Zarządzanie danymi
+
+# Czynności wykonane w panelu administracyjnym Django (http://127.0.0.1:8000/admin/):
+
+# 1. Dodano 3 ogłoszenia przez interfejs graficzny (ADD OGLOSZENIE +):
+#
+#    Ogłoszenie 1:
+#      tytul: Sprzedam rower górski
+#      opis: Rower w bardzo dobrym stanie, mało używany, idealny na trasy terenowe.
+#      cena: 850.00
+#
+#    Ogłoszenie 2:
+#      tytul: Oddam w dobre ręce kanapę
+#      opis: Kanapa rozkładana, trzyosobowa, kolor szary. Do odebrania osobiście.
+#      cena: 0.00
+#
+#    Ogłoszenie 3:
+#      tytul: Korepetycje z matematyki
+#      opis: Udzielam korepetycji z matematyki dla uczniów szkoły podstawowej i średniej.
+#      cena: 60.00
+
+# Efekt: wszystkie 3 ogłoszenia poprawnie zapisane i widoczne na liście w panelu admina.
+
+# 2. Edycja jednego z ogłoszeń:
+#    - Otworzono ogłoszenie "Sprzedam rower górski"
+#    - Zmieniono pole cena
+#    - Zapisano (SAVE)
+#    Efekt: zmiana zapisana poprawnie, widoczna na liście ogłoszeń.
+
+# 3. Usunięcie jednego z ogłoszeń:
+#    - Zaznaczono checkbox przy ogłoszeniu "Korepetycje z matematyki"
+#    - Wybrano akcję "Delete selected ogloszenies" z listy Action
+#    - Potwierdzono usunięcie
+#    Efekt: ogłoszenie poprawnie usunięte z bazy danych, zniknęło z listy.

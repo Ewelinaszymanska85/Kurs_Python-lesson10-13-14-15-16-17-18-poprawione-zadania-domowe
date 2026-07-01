@@ -1,0 +1,24 @@
+# Zadanie 5 - Superużytkownik
+
+# Komendy wykonane w terminalu (w katalogu mojastrona_projekt):
+
+python manage.py createsuperuser
+
+# Dane wprowadzone interaktywnie:
+# Username: eweli
+# Email address: ewelina@interia.pl
+# Password: (wprowadzone, zaakceptowane mimo ostrzeżeń walidacji)
+
+# Efekt:
+# Superuser created successfully.
+
+python manage.py runserver
+
+# Wejście w przeglądarce na adres:
+http://127.0.0.1:8000/admin/
+
+# Efekt:
+# Wyświetlił się panel logowania Django administration.
+# Zalogowano się poprawnie podanymi danymi superużytkownika.
+# Panel admina wyświetlił sekcje: Authentication and Authorization
+# (Groups, Users).

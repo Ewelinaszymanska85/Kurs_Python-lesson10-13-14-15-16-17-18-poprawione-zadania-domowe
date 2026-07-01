@@ -1,0 +1,19 @@
+{# blog/templates/blog/home.html #}
+ 
+{% extends "base.html" %}
+ 
+{% block content %}
+ 
+<h1>Najnowsze posty</h1>
+ 
+{% if posts %}
+    <ul class="list-group">
+        {% for post in posts %}
+            <li class="list-group-item">{{ post.title }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Brak postów.</p>
+{% endif %}
+ 
+{% endblock %} 

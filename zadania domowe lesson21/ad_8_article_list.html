@@ -1,0 +1,24 @@
+{# articles/templates/articles/article_list.html #}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Lista artykułów</h1>
+
+{% if articles %}
+    <ul class="list-group">
+        {% for article in articles %}
+            <li class="list-group-item">
+                {{ article.title }}
+                {% if article.is_new %}
+                    <span class="badge bg-danger">NOWOŚĆ!</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Brak opublikowanych artykułów.</p>
+{% endif %}
+
+{% endblock %} 

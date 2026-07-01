@@ -1,0 +1,37 @@
+{# articles/templates/articles/article_list.html #}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Lista artykułów</h1>
+
+<form method="GET" class="mb-3">
+    <div class="input-group">
+        <input
+            type="text"
+            name="q"
+            value="{{ search_query }}"
+            placeholder="Szukaj artykułu po tytule..."
+            class="form-control"
+        >
+        <button type="submit" class="btn btn-primary">Szukaj</button>
+    </div>
+</form>
+
+{% if articles %}
+    <ul class="list-group">
+        {% for article in articles %}
+            <li class="list-group-item">
+                {{ article.title }}
+                {% if article.is_new %}
+                    <span class="badge bg-danger">NOWOŚĆ!</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Brak artykułów spełniających kryteria wyszukiwania.</p>
+{% endif %}
+
+{% endblock %} 

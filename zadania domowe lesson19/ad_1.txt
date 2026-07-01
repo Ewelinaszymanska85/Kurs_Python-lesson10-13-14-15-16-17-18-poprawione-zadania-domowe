@@ -1,0 +1,17 @@
+# Zadanie 1 - Instalacja i projekt
+# Ścieżka: zadania domowe lesson19/mojastrona_projekt
+
+mkdir mojastrona_projekt
+cd mojastrona_projekt
+
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+pip install django
+
+django-admin startproject mojastrona .
+
+# Efekt - zawartość folderu po wykonaniu komend:
+# .venv/
+# mojastrona/
+# manage.py 

@@ -1,0 +1,24 @@
+# ============================================================
+# Lekcja 22 - Zadanie 4 - Instalacja Fakera
+# ============================================================
+
+
+# ------------------------------------------------------------
+# Konsola (w aktywnym wirtualnym środowisku .venv)
+# ------------------------------------------------------------
+# pip install Faker
+
+
+# ------------------------------------------------------------
+# Weryfikacja instalacji - wynik komendy: pip show Faker
+# ------------------------------------------------------------
+# Name: Faker
+# Version: 40.27.0
+# Summary: Faker is a Python package that generates fake data for you.
+# Home-page: https://github.com/joke2k/faker
+# Author: joke2k
+# Author-email: joke2k@gmail.com
+# License: MIT License
+# Location: C:\Projects python\Kurs Python\Ważne tematy do lekcji\22 lekcja\.venv\Lib\site-packages
+# Requires: tzdata
+# Required-by: 

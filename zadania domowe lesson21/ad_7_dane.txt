@@ -1,0 +1,48 @@
+============================================================
+Lekcja 21 - Zadanie 7 - Relacja i wyświetlanie (część 2: dane)
+============================================================
+
+Komenda startowa (z głównego katalogu projektu, gdzie jest manage.py):
+
+python manage.py shell
+
+
+Następnie wklejaj KAŻDĄ z poniższych linii pojedynczo, czekając na
+prompt ">>>" po każdej:
+
+from articles.models import Article, Category
+
+sport = Category.objects.get(name="Sport")
+
+technologia = Category.objects.get(name="Technologia")
+
+kultura = Category.objects.get(name="Kultura")
+
+Article.objects.create(title="Wyniki ligi mistrzów", content="Treść artykułu o sporcie.", category=sport)
+
+Article.objects.create(title="Nowy smartfon na rynku", content="Treść artykułu o technologii.", category=technologia)
+
+Article.objects.create(title="Premiera filmu w kinach", content="Treść artykułu o kulturze.", category=kultura)
+
+Article.objects.create(title="Mistrzostwa świata w pływaniu", content="Kolejny artykuł sportowy.", category=sport)
+
+exit()
+
+
+------------------------------------------------------------
+Przykładowy efekt (output) po wykonaniu powyższych komend:
+------------------------------------------------------------
+
+>>> from articles.models import Article, Category
+>>> sport = Category.objects.get(name="Sport")
+>>> technologia = Category.objects.get(name="Technologia")
+>>> kultura = Category.objects.get(name="Kultura")
+>>> Article.objects.create(title="Wyniki ligi mistrzów", content="Treść artykułu o sporcie.", category=sport)
+<Article: Wyniki ligi mistrzów>
+>>> Article.objects.create(title="Nowy smartfon na rynku", content="Treść artykułu o technologii.", category=technologia)
+<Article: Nowy smartfon na rynku>
+>>> Article.objects.create(title="Premiera filmu w kinach", content="Treść artykułu o kulturze.", category=kultura)
+<Article: Premiera filmu w kinach>
+>>> Article.objects.create(title="Mistrzostwa świata w pływaniu", content="Kolejny artykuł sportowy.", category=sport)
+<Article: Mistrzostwa świata w pływaniu>
+>>> exit() 

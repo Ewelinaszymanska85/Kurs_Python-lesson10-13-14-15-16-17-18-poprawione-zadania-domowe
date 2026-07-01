@@ -1,0 +1,47 @@
+{# blog/templates/blog/home.html #}
+{# CAŁY PLIK - zastąp obecną zawartość tą wersją #}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Najnowsze posty</h1>
+
+{# ------------------------------------------------------------ #}
+{# Formularz wyszukiwania - wysyła zapytanie GET pod adres "/"   #}
+{# z parametrem q=<fraza>, np. /?q=django                        #}
+{# method="get" jest kluczowe - dzięki temu fraza trafia do URL  #}
+{# i widok home_view odbiera ją przez request.GET.get("q")       #}
+{# ------------------------------------------------------------ #}
+<form method="get" action="{% url 'home' %}" class="mb-4">
+    <div class="input-group">
+        <input
+            type="text"
+            name="q"
+            class="form-control"
+            placeholder="Szukaj postów..."
+            value="{{ query }}"
+        >
+        <button class="btn btn-primary" type="submit">Szukaj</button>
+    </div>
+</form>
+
+{% if query %}
+    <p>Wyniki wyszukiwania dla frazy: <strong>"{{ query }}"</strong></p>
+{% endif %}
+
+{% if posts %}
+    <ul class="list-group">
+        {% for post in posts %}
+            <li class="list-group-item">{{ post.title }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    {% if query %}
+        <p>Brak postów pasujących do frazy "{{ query }}".</p>
+    {% else %}
+        <p>Brak postów.</p>
+    {% endif %}
+{% endif %}
+
+{% endblock %} 

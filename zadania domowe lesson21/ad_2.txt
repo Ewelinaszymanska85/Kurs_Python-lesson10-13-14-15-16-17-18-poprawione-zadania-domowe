@@ -1,0 +1,51 @@
+============================================================
+Lekcja 21 - Zadanie 2 - Dodawanie danych (3 obiekty Category)
+============================================================
+
+Komenda startowa (z głównego katalogu projektu, gdzie jest manage.py):
+
+python manage.py shell
+
+
+Następnie wklejaj KAŻDĄ z poniższych linii pojedynczo, czekając na
+prompt ">>>" po każdej:
+
+from articles.models import Category
+
+Category.objects.create(name="Sport")
+
+Category.objects.create(name="Technologia")
+
+Category.objects.create(name="Kultura")
+
+exit()
+
+
+------------------------------------------------------------
+Przykładowy efekt (output) po wykonaniu powyższych komend:
+------------------------------------------------------------
+
+>>> from articles.models import Category
+>>> Category.objects.create(name="Sport")
+<Category: Sport>
+>>> Category.objects.create(name="Technologia")
+<Category: Technologia>
+>>> Category.objects.create(name="Kultura")
+<Category: Kultura>
+>>> exit()
+
+
+------------------------------------------------------------
+Weryfikacja (opcjonalnie) - sprawdzenie, że obiekty są w bazie:
+------------------------------------------------------------
+
+python manage.py shell
+
+from articles.models import Category
+Category.objects.all()
+
+Powinno zwrócić:
+<QuerySet [<Category: Kultura>, <Category: Sport>, <Category: Technologia>]>
+
+(kolejność alfabetyczna, bo w modelu Category ustawiliśmy
+Meta.ordering = ["name"]) 

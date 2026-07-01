@@ -1,0 +1,30 @@
+============================================================
+Lekcja 21 - Zadanie 5 - Filtrowanie w shellu (metoda get())
+============================================================
+
+Komenda startowa (z głównego katalogu projektu, gdzie jest manage.py):
+
+python manage.py shell
+
+
+Następnie wklejaj KAŻDĄ z poniższych linii pojedynczo, czekając na
+prompt ">>>" po każdej:
+
+from articles.models import Category
+
+sport_category = Category.objects.get(name="Sport")
+
+sport_category
+
+exit()
+
+
+------------------------------------------------------------
+Przykładowy efekt (output) po wykonaniu powyższych komend:
+------------------------------------------------------------
+
+>>> from articles.models import Category
+>>> sport_category = Category.objects.get(name="Sport")
+>>> sport_category
+<Category: Sport>
+>>> exit() 
